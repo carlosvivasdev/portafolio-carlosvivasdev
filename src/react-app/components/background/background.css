@@ -1,0 +1,114 @@
+/* src/components/DecorBackground.css */
+.decor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* permite que los clics pasen a los elementos debajo */
+    z-index: -1;
+    /* queda en el fondo */
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    background-color: #212121;
+    position: absolute;
+    /* animation: float 4s infinite ease-in-out alternate; */
+}
+
+/* Posiciones */
+.top-left {
+    top: 0px;
+    left: 0px;
+    animation: top-left .5s ease-in-out alternate;
+}
+
+.top-right {
+    /* top: 0px;
+    right: 0px;
+    /* width: 60px;
+    height: 100px; */
+    animation: top-right .5s ease-in-out alternate;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* animation: float 4s infinite ease-in-out alternate; */
+}
+
+.bottom-left {
+    bottom: 0px;
+    left: 0px;
+    width: 25px;
+    height: 320px;
+    animation: bottom-left .5s ease-in-out alternate;
+}
+
+.bottom-right {
+    bottom: 0px;
+    right: 0px;
+    width: 25px;
+    height: 25px;
+}
+
+.pointers {
+    border-radius: 50%;
+    bottom: 150px;
+    right: 14%;
+    background-image: radial-gradient(#212121 1.5px, transparent 1.5px), radial-gradient(#212121 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    background-color: #ffffff;
+}
+
+/* Animación suave */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        transform: translateY(-10px) scale(1.2);
+    }
+}
+
+@keyframes top-left {
+    0% {
+        height: 100px;
+    }
+
+    100% {
+        height: 60px;
+    }
+}
+
+@keyframes bottom-left {
+    0% {
+        height: 280px;
+    }
+
+    100% {
+        height: 320px;
+    }
+}
+
+@keyframes top-right {
+    0% {
+        height: 100px;
+        top: 0px;
+        right: 0px;
+        width: 60px;
+        height: 100px;
+        border-radius: 0%;
+    }
+
+    100% {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+    }
+}
