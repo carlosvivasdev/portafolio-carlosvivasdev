@@ -22,14 +22,14 @@ function App() {
     "Si estás leyendo esto, significa que aún no terminé. Qué sorpresa.",
     "Esta página aún no existe... como mi motivación.",
     "Todo iba bien, hasta que dije: ‘lo hago mañana’.",
-    "404 ganas no encontradas.",
+    "Error 404 (ganas no encontradas).",
     "Estoy haciendo pruebas... de paciencia.",
     "Progreso del proyecto: 1% hecho, 99% memes.",
     "Haz como yo: no esperes nada y no te decepcionarás.",
     "La web se está cocinando... en fuego lento, como todo lo bueno (según yo).",
     "¿Por qué funciona? – No lo sé.",
     "Entre un ‘npm install’ y otro, me tomo otro café.",
-    "Este deploy fue más lento que un pit stop de Ferrari 😂.",
+    "Este deploy fue más lento que un pit stop de Ferrari.",
     "Carlos y Ferrari tienen algo en común: los dos dicen que todo va bien... hasta que no.",
     "Mis commits son como las estrategias de Ferrari: suenan bien al principio... luego lloras.",
     "Disponible pronto. O no. ¿Quién sabe?",
@@ -56,10 +56,12 @@ function App() {
   return (
     <>
       <Background />
-      <h2>PROXIMAMENTE</h2>
-      <img src={gifMain} alt="Cargando..." />
-      <p> {fraseActual} </p>
-      <Btn_main cambiarFrase={cambiarFrase} />
+      <div className="container">
+        <h2>PROXIMAMENTE</h2>
+        <img src={gifMain} alt="Cargando..." />
+        <p> {fraseActual} </p>
+        <Btn_main cambiarFrase={cambiarFrase} />
+      </div>
     </>
   );
 }

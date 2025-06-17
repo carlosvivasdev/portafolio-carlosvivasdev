@@ -3,69 +3,73 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    /* permite que los clics pasen a los elementos debajo */
     z-index: -1;
-    /* queda en el fondo */
 }
 
 .square {
-    width: 60px;
-    height: 60px;
+    width: 6vw;
+    height: 6vw;
+    max-width: 60px;
+    max-height: 60px;
     background-color: #212121;
     position: absolute;
-    /* animation: float 4s infinite ease-in-out alternate; */
 }
 
 /* Posiciones */
 .top-left {
-    top: 0px;
-    left: 0px;
-    animation: top-left .5s ease-in-out alternate;
+    top: 0;
+    left: 0;
+    animation: top-left 0.5s ease-in-out alternate;
 }
 
 .top-right {
-    /* top: 0px;
-    right: 0px;
-    /* width: 60px;
-    height: 100px; */
-    animation: top-right .5s ease-in-out alternate;
-    top: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
+    top: 2vh;
+    right: 2vw;
+    width: 4.5vw;
+    height: 4.5vw;
+    max-width: 45px;
+    max-height: 45px;
     border-radius: 50%;
-    /* animation: float 4s infinite ease-in-out alternate; */
+    animation: top-right 0.5s ease-in-out alternate;
 }
 
 .bottom-left {
-    bottom: 0px;
-    left: 0px;
-    width: 25px;
-    height: 320px;
-    animation: bottom-left .5s ease-in-out alternate;
+    bottom: 0;
+    left: 0;
+    width: 2.5vw;
+    height: 30vh;
+    max-width: 25px;
+    max-height: 320px;
+    animation: bottom-left 0.5s ease-in-out alternate;
 }
 
 .bottom-right {
-    bottom: 0px;
-    right: 0px;
-    width: 25px;
-    height: 25px;
+    bottom: 0;
+    right: 0;
+    width: 2.5vw;
+    height: 2.5vw;
+    max-width: 25px;
+    max-height: 25px;
 }
 
 .pointers {
     border-radius: 50%;
-    bottom: 150px;
+    bottom: 15%;
     right: 14%;
     background-image: radial-gradient(#212121 1.5px, transparent 1.5px), radial-gradient(#212121 1.5px, transparent 1.5px);
     background-size: 10px 10px;
     background-position: 0 0, 5px 5px;
     background-color: #ffffff;
+    width: 6vw;
+    height: 6vw;
+    max-width: 60px;
+    max-height: 60px;
 }
 
-/* Animación suave */
+/* Animaciones */
 @keyframes float {
     0% {
         transform: translateY(0) scale(1);
@@ -78,37 +82,50 @@
 
 @keyframes top-left {
     0% {
-        height: 100px;
+        height: 10vh;
     }
 
     100% {
-        height: 60px;
+        height: 6vh;
     }
 }
 
 @keyframes bottom-left {
     0% {
-        height: 280px;
+        height: 28vh;
     }
 
     100% {
-        height: 320px;
+        height: 32vh;
     }
 }
 
 @keyframes top-right {
     0% {
-        height: 100px;
-        top: 0px;
-        right: 0px;
-        width: 60px;
-        height: 100px;
+        height: 10vh;
+        top: 0;
+        right: 0;
+        width: 6vw;
         border-radius: 0%;
     }
 
     100% {
-        height: 45px;
-        width: 45px;
+        height: 4.5vw;
+        width: 4.5vw;
         border-radius: 50%;
+    }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 400px) {
+
+    .square,
+    .pointers {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .bottom-left {
+        height: 25vh;
     }
 }

@@ -8,8 +8,24 @@
 p {
   font-size: 1.1rem;
   color: black;
+  word-wrap: break-word;
+  width: 100%;
 }
 
 img {
+  width: 450px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.container {
+  max-width: 450px;
   width: 95%;
+  /* margin: 0 auto; */
+  text-align: center;
+  /* padding: 2rem 1rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 1.5rem; */
 }
