@@ -10,122 +10,161 @@
 }
 
 .square {
-    width: 6vw;
-    height: 6vw;
-    max-width: 60px;
-    max-height: 60px;
-    background-color: #212121;
     position: absolute;
+    background-color: #212121;
+    animation-fill-mode: forwards;
 }
 
-/* Posiciones */
+/* === TOP LEFT === */
 .top-left {
     top: 0;
     left: 0;
-    animation: top-left 0.5s ease-in-out alternate;
+    width: 60px;
+    height: 100px;
+    animation: top-left-bounce 0.6s cubic-bezier(0.65, -0.1, 0.35, 1.1) forwards;
 }
 
+@keyframes top-left-bounce {
+    0% {
+        height: 100px;
+        transform: scale(1);
+    }
+
+    70% {
+        height: 65px;
+        transform: scale(1.1);
+    }
+
+    100% {
+        height: 60px;
+        transform: scale(1);
+    }
+}
+
+/* === TOP RIGHT === */
 .top-right {
-    top: 2vh;
-    right: 2vw;
-    width: 4.5vw;
-    height: 4.5vw;
-    max-width: 45px;
-    max-height: 45px;
-    border-radius: 50%;
-    animation: top-right 0.5s ease-in-out alternate;
-}
-
-.bottom-left {
-    bottom: 0;
-    left: 0;
-    width: 2.5vw;
-    height: 30vh;
-    max-width: 25px;
-    max-height: 320px;
-    animation: bottom-left 0.5s ease-in-out alternate;
-}
-
-.bottom-right {
-    bottom: 0;
+    top: 0;
     right: 0;
-    width: 2.5vw;
-    height: 2.5vw;
-    max-width: 25px;
-    max-height: 25px;
+    width: 60px;
+    height: 100px;
+    border-radius: 0%;
+    animation: top-right-bonus 0.6s cubic-bezier(0.65, -0.1, 0.35, 1.1) forwards;
 }
 
-.pointers {
-    border-radius: 50%;
-    bottom: 15%;
-    right: 14%;
-    background-image: radial-gradient(#212121 1.5px, transparent 1.5px), radial-gradient(#212121 1.5px, transparent 1.5px);
-    background-size: 10px 10px;
-    background-position: 0 0, 5px 5px;
-    background-color: #ffffff;
-    width: 6vw;
-    height: 6vw;
-    max-width: 60px;
-    max-height: 60px;
-}
-
-/* Animaciones */
-@keyframes float {
+@keyframes top-right-bonus {
     0% {
-        transform: translateY(0) scale(1);
-    }
-
-    100% {
-        transform: translateY(-10px) scale(1.2);
-    }
-}
-
-@keyframes top-left {
-    0% {
-        height: 10vh;
-    }
-
-    100% {
-        height: 6vh;
-    }
-}
-
-@keyframes bottom-left {
-    0% {
-        height: 28vh;
-    }
-
-    100% {
-        height: 32vh;
-    }
-}
-
-@keyframes top-right {
-    0% {
-        height: 10vh;
+        transform: scale(1) translate(0, 0);
+        width: 60px;
+        height: 100px;
         top: 0;
         right: 0;
-        width: 6vw;
         border-radius: 0%;
     }
 
+    70% {
+        transform: scale(1.15) translate(-5px, -5px);
+        width: 50px;
+        height: 50px;
+        top: 18px;
+        right: 18px;
+        border-radius: 40%;
+    }
+
     100% {
-        height: 4.5vw;
-        width: 4.5vw;
+        transform: scale(1) translate(0, 0);
+        width: 45px;
+        height: 45px;
+        top: 20px;
+        right: 20px;
         border-radius: 50%;
     }
 }
 
-/* Media query para pantallas muy pequeñas */
-@media (max-width: 400px) {
+/* === BOTTOM LEFT === */
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 25px;
+    height: 280px;
+    animation: bottom-left-bounce 0.6s cubic-bezier(0.65, -0.1, 0.35, 1.1) forwards;
+}
 
-    .square,
-    .pointers {
-        width: 8vw;
-        height: 8vw;
+@keyframes bottom-left-bounce {
+    0% {
+        height: 280px;
+        transform: scale(1);
     }
 
-    .bottom-left {
-        height: 25vh;
+    70% {
+        height: 340px;
+        transform: scale(1.05);
+    }
+
+    100% {
+        height: 320px;
+        transform: scale(1);
+    }
+}
+
+/* === BOTTOM RIGHT === */
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    animation: bottom-right-fadein 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes bottom-right-fadein {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === POINTERS (Decoración circular) === */
+.pointers {
+    position: absolute;
+    border-radius: 50%;
+    bottom: 15%;
+    right: 14%;
+    background-image: radial-gradient(#212121 1.5px, transparent 1.5px),
+        radial-gradient(#212121 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    background-color: #ffffff;
+    width: 60px;
+    height: 60px;
+    animation: pointer-pop 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes pointer-pop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 400px) {
+
+    .top-right,
+    .top-left,
+    .bottom-left,
+    .bottom-right,
+    .pointers {
+        transform: scale(0.9);
     }
 }
