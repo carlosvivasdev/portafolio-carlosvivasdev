@@ -74,8 +74,8 @@
         transform: scale(1) translate(0, 0);
         width: 45px;
         height: 45px;
-        top: 20px;
-        right: 20px;
+        top: 15px;
+        right: 15px;
         border-radius: 50%;
     }
 }
@@ -166,5 +166,30 @@
     .bottom-right,
     .pointers {
         transform: scale(0.9);
+    }
+
+    .bottom-left {
+        width: 15px;
+    }
+
+    .top-left {
+        width: 45px;
+    }
+
+    @keyframes top-left-bounce {
+        0% {
+            height: 70px;
+            transform: scale(1);
+        }
+
+        70% {
+            height: 50px;
+            transform: scale(1.1);
+        }
+
+        100% {
+            height: 45px;
+            transform: scale(1);
+        }
     }
 }
