@@ -40,6 +40,9 @@ h1 {
 
 h2 {
   font-family: 'Press Start 2P', cursive;
+  position: relative;
+  color: #212121;
+  animation: blink 1.2s steps(2, start) infinite;
 }
 
 button {

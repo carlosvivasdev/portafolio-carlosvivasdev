@@ -1,5 +1,4 @@
 .btn {
-    /* Ya no ponemos background-color separado */
     color: #ffffff;
     font-weight: bold;
     font-size: 1.1rem;
@@ -9,24 +8,55 @@
     width: 100%;
     cursor: pointer;
     box-shadow: 5px 5px 0 #1a1a1a;
-    transition: all 0.2s ease, background-position 300ms ease-in-out;
-
-    /* Efecto de barrido corregido */
     background-image: linear-gradient(30deg, #0797DD 50%, transparent 50%);
     background-size: 300%;
     background-repeat: no-repeat;
     background-position: 0%;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
     border: 2px solid #252525;
     box-shadow: 3px 3px 0 #1a1a1a;
     transform: translate(2px, 2px);
-
     background-position: 100%;
     color: #0797DD;
 }
 
 .btn:focus {
     outline: none;
+}
+
+/* Móviles: sin hover, animación suave en clic */
+@media (max-width: 400px) {
+    .btn:hover {
+        background-position: 0%;
+        transform: none;
+        color: white;
+        border: 3px solid #1a1a1a;
+        box-shadow: 5px 5px 0 #1a1a1a;
+    }
+
+    .btn-mobile-glitch {
+        animation: retroHover 0.3s ease-in-out 2 alternate;
+
+    }
+
+    @keyframes retroHover {
+        from {
+            background-position: 0%;
+            transform: translate(0px, 0px);
+            color: #fff;
+            border: 3px solid #1a1a1a;
+            box-shadow: 5px 5px 0 #1a1a1a;
+        }
+
+        to {
+            background-position: 100%;
+            transform: translate(2px, 2px);
+            color: #0797DD;
+            border: 2px solid #252525;
+            box-shadow: 3px 3px 0 #1a1a1a;
+        }
+    }
 }
